@@ -1,0 +1,119 @@
+.wslsurfer{
+	border:1px solid #ddd;
+}
+
+.wslsurferrank{
+	width:50%;
+	float:left;
+	border:1px solid #ddd;
+	text-align:center;
+	font-size:14pt;
+	font-weight:100;
+	margin-top:6px;
+}
+
+.wslsurferteam{
+	width:50%;
+	float:left;
+	border:1px solid #ddd;
+	text-align:center;
+	margin-top:5px;
+}
+
+.wslsurfername{
+	padding:15px;
+	font-weight:900;
+	border:1px solid #ddd;
+}
+
+.wslsurferresults{
+	border:1px solid #ddd;
+}
+
+.wslsurferpoints{
+	font-weight:900;
+	padding:0px;
+	text-align:center;
+	border:1px solid #ddd;
+}
+
+.wslsurferexpand{
+	border:1px solid #ddd;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:14px;
+	padding-bottom:9px;
+	text-align:right;
+}
+
+.wslsurferexpand :hover{
+	cursor:pointer;
+}
+
+.expandedsurfer{
+	/*
+	display:none;
+	*/
+}
+
+/*BELOW EXACTLY COPIED FROM TEAM.CSS*/
+
+.performanceresult{
+	width:9.09%;
+	padding-top:10px;
+	padding-bottom:15px;
+	padding-left:0px;
+	padding-right:0px;
+	text-align:center;
+}
+
+.performanceeventname{
+	padding:8px 15px 8px 0px;
+	text-align:right;
+	font-size:10pt;
+	font-weight:400;
+}
+
+.performanceeventnumber{
+	padding:8px 0px 8px 0px;
+	text-align:center;
+	border-bottom:1px solid #eee;
+	font-size:10pt;
+	font-weight:400;
+}
+
+.performanceround{
+	width:12.5%;
+	text-align:center;
+	font-size:7pt;
+	font-weight:900;
+	padding:7px 0px 7px 0px;
+	border-top:5px solid #eee;border-bottom:5px solid #eee;
+}
+
+.performanceinjured{
+	width:100%;
+	text-align:left;
+	font-size:7pt;
+	font-weight:900;
+	padding:13px 0px 13px 10px;
+}
+
+.event25{background-color:#2D112C;color:#943891;}
+.event13{background-color:#530031;color:#A1005F;}
+.event9{background-color:#820233;color:#E8045B;}
+.event5{background-color:#CA293E;color:#4F1018;}
+.event3{background-color:#EF4339;color:#6E1F1A;}
+.event2{background-color:#EF5D3B;color:#7A301E;}
+.event1{background-color:#EFCD4C;color:#423915;}
+.eventinjured{background-color:#0F060F;color:#aaa;}
+.eventunsurfed{background-color:#eee;color:#999;}
+
+.performancewon{background-color:#ABD25E;color:#667D38;}
+.performancerelegated{background-color:#F8C830;color:#876D1A;}
+.performancelost{background-color:#F1594A;color:#8F352C;}
+.performanceout{background-color:#eee;color:#ccc;}
+.performanceinjured{background-color:#eee;color:#999;}
+
+
+
