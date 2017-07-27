@@ -46,7 +46,7 @@ class WSL{
 							FROM surfers w
 							LEFT JOIN surfer_scores AS s
 							ON w.id = s.surfer_id
-							WHERE s.event>0";
+							WHERE s.event>0 AND w.wildcard=0";
 					
 			
      		$result = $this->db_connection->query($sql);
@@ -85,6 +85,8 @@ class WSL{
 		
 		$scores = $this->calculateRankings();
 		
+		$last_event = 6; //eventually get event using last event in status 2 / 3 / 4
+		
 		//create ranking based on scores
 		foreach($scores as $sid=>$v1){
 			$totals[$sid] = $v1['total'];
@@ -108,17 +110,31 @@ class WSL{
 			
 			$name = $scores[$sid]['name'];
 			
-		if(!empty($scores[$sid][1]['pos'])){$pos1=$scores[$sid][1]['pos'];$sco1=$scores[$sid][1]['pts'];}else{$pos1="--";$sco1="";}
-		if(!empty($scores[$sid][2]['pos'])){$pos2=$scores[$sid][2]['pos'];$sco2=$scores[$sid][1]['pts'];}else{$pos2="--";$sco2="";}
-		if(!empty($scores[$sid][3]['pos'])){$pos3=$scores[$sid][3]['pos'];$sco3=$scores[$sid][1]['pts'];}else{$pos3="--";$sco3="";}
-		if(!empty($scores[$sid][4]['pos'])){$pos4=$scores[$sid][4]['pos'];$sco4=$scores[$sid][1]['pts'];}else{$pos4="--";$sco4="";}
-		if(!empty($scores[$sid][5]['pos'])){$pos5=$scores[$sid][5]['pos'];$sco5=$scores[$sid][1]['pts'];}else{$pos5="--";$sco5="";}
-		if(!empty($scores[$sid][6]['pos'])){$pos6=$scores[$sid][6]['pos'];$sco6=$scores[$sid][1]['pts'];}else{$pos6="--";$sco6="";}
-		if(!empty($scores[$sid][7]['pos'])){$pos7=$scores[$sid][7]['pos'];$sco7=$scores[$sid][1]['pts'];}else{$pos7="--";$sco7="";}
-		if(!empty($scores[$sid][8]['pos'])){$pos8=$scores[$sid][8]['pos'];$sco8=$scores[$sid][1]['pts'];}else{$pos8="--";$sco8="";}
-		if(!empty($scores[$sid][9]['pos'])){$pos9=$scores[$sid][9]['pos'];$sco9=$scores[$sid][1]['pts'];}else{$pos9="--";$sco9="";}
-		if(!empty($scores[$sid][10]['pos'])){$pos10=$scores[$sid][10]['pos'];$sco10=$scores[$sid][1]['pts'];}else{$pos10="--";$sco10="";}
-		if(!empty($scores[$sid][11]['pos'])){$pos11=$scores[$sid][11]['pos'];$sco11=$scores[$sid][1]['pts'];}else{$pos11="--";$sco11="";}
+			for($i=1;$i<12;$i++){
+				
+				if($i<=$last_event){
+					
+					if(!empty($scores[$sid][$i]['pos']) && $scores[$sid][$i]['pos']<1000){
+						$pos[$i] = $scores[$sid][$i]['pos'];
+						$sco[$i] = $scores[$sid][$i]['pts'];
+						$stat[$i] = $scores[$sid][$i]['pos'];
+					}elseif($scores[$sid][$i]['pos']==1000){
+						$pos[$i] = "O";
+						$stat[$i] = "injured";
+					}else{
+						$pos[$i] = "--";
+						$stat[$i] = "out";
+					}
+					
+				}elseif($i>$last_event){
+					
+					$pos[$i] = "--";
+					$sco[$i] = 0;
+					$stat[$i] = "unsurfed";
+					
+				}
+				
+			}
 			
 		$display.='
 							<div class="row align-center align-middle wslsurfer hide-for-small-only">
@@ -126,12 +142,81 @@ class WSL{
 									<div class="wslsurferrank">'.$ranking.'</div>
 									<div class="wslsurferteam">'.$team.'</div>
 								</div>
-							
+								
+								<div class="large-3 medium-4 columns wslsurfername">'.$name.'</div>
+								
+								<div class="large-6 medium-5 columns wslsurferresults">
+										<div class="row">
+											<div class="performanceresult event'.$stat[1].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Quiksilver Pro Gold Coast">
+													'.$pos[1].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[2].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Drug Aware Margaret River Pro">
+													'.$pos[2].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[3].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Rip Curl Pro Bells Beach">
+													'.$pos[3].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[4].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Oi Rio Pro">
+													'.$pos[4].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[5].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Fiji Pro">
+													'.$pos[5].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[6].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Corona Open J-Bay">
+													'.$pos[6].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[7].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Billabong Pro Tahiti">
+													'.$pos[7].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[8].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Hurley Pro at Trestles">
+													'.$pos[8].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[9].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Quiksilver Pro France">
+													'.$pos[9].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[10].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="MEO Rip Curl Pro Portugal">
+													'.$pos[10].'
+												</span>
+											</div>
+											<div class="performanceresult event'.$stat[11].'">
+												<span data-tooltip aria-haspopup="true" class="has-tip" title="Billabong Pipe Masters">
+													'.$pos[11].'
+												</span>
+											</div>
+										</div>
+								</div>
+								
+								<div class="large-1 medium-1 columns wslsurferpoints">'.number_format($total).'</div>
+								
+								<div class="large-1 medium-1 columns wslsurferexpand closedchevron"> <i class="material-icons">chevron_left</i> </div>
+								
+							</div>
 							';
 						
-							echo $display;
+		
 		}
 		
+		
+		echo $display;
 		
 	}	
 		
