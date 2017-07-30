@@ -1,21 +1,19 @@
 .wslsurfer{
-	border:1px solid #ddd;
+	
 }
 
 .wslsurferrank{
 	width:50%;
 	float:left;
-	border:1px solid #ddd;
 	text-align:center;
 	font-size:14pt;
 	font-weight:100;
-	margin-top:6px;
+	margin-top:3px;
 }
 
 .wslsurferteam{
 	width:50%;
 	float:left;
-	border:1px solid #ddd;
 	text-align:center;
 	margin-top:5px;
 }
@@ -23,22 +21,19 @@
 .wslsurfername{
 	padding:15px;
 	font-weight:900;
-	border:1px solid #ddd;
 }
 
 .wslsurferresults{
-	border:1px solid #ddd;
+	
 }
 
 .wslsurferpoints{
 	font-weight:900;
 	padding:0px;
 	text-align:center;
-	border:1px solid #ddd;
 }
 
 .wslsurferexpand{
-	border:1px solid #ddd;
 	padding-left:10px;
 	padding-right:10px;
 	padding-top:14px;
@@ -51,16 +46,24 @@
 }
 
 .expandedsurfer{
-	/*
 	display:none;
-	*/
 }
+
+.evenline{
+	background-color:#eee;
+}
+
+.oddline{
+	background-color:white;
+}
+
+
 
 /*BELOW EXACTLY COPIED FROM TEAM.CSS*/
 
 .performanceresult{
 	width:9.09%;
-	padding-top:10px;
+	padding-top:14px;
 	padding-bottom:15px;
 	padding-left:0px;
 	padding-right:0px;
@@ -115,5 +118,49 @@
 .performanceout{background-color:#eee;color:#ccc;}
 .performanceinjured{background-color:#eee;color:#999;}
 
+.evenline .performanceround{border-top:5px solid #eee;border-bottom:5px solid #eee;}
+.oddline .performanceround{border-top:5px solid white;border-bottom:5px solid white;}
+
+.evenline .eventunsurfed{background-color:#eee;}
+.oddline .eventunsurfed{background-color:white;}
+
+.evenline .performanceout{background-color:#eee;color:#ccc;}
+.oddline .performanceout{background-color:white;color:white;}
 
 
+/*SMALL*/
+.leagueleaderboard :hover{
+	cursor:pointer;
+}
+
+.sm-standings-row{
+	
+}
+
+.sm-leaderboard-rank{
+	text-align:center;
+	font-size:14pt;
+	font-weight:100;
+	margin-top:3px;
+}
+
+.sm-leaderboard-username{
+	font-weight:900;
+	padding:10px;
+}
+
+.sm-leaderboard-total{
+	text-align:right;
+	font-weight:900;
+}
+
+.sm-leaderboard-chevron{
+	font-weight:900;
+	padding:10px;
+}
+
+.performancelabel{
+	padding:0px 0px 3px 5px;
+	font-size:7pt;
+	font-weight:900;
+}
