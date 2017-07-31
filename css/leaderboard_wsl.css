@@ -64,7 +64,7 @@
 .performanceresult{
 	width:9.09%;
 	padding-top:14px;
-	padding-bottom:15px;
+	padding-bottom:14px;
 	padding-left:0px;
 	padding-right:0px;
 	text-align:center;
@@ -102,13 +102,13 @@
 	padding:13px 0px 13px 10px;
 }
 
-.event25{background-color:#2D112C;color:#943891;}
-.event13{background-color:#530031;color:#A1005F;}
-.event9{background-color:#820233;color:#E8045B;}
-.event5{background-color:#CA293E;color:#4F1018;}
-.event3{background-color:#EF4339;color:#6E1F1A;}
-.event2{background-color:#EF5D3B;color:#7A301E;}
-.event1{background-color:#EFCD4C;color:#423915;}
+.event25{background-color:#E8F8FF;color:black;}/**/
+.event13{background-color:#E0F5FC;color:black;}/**/
+.event9{background-color:#CEE6ED;color:black;}
+.event5{background-color:#FF6D1F;color:black;}
+.event3{background-color:#FF822E;color:black;}
+.event2{background-color:#FFBE00;color:black;}/**/
+.event1{background-color:#FFFF00;color:black;}/**/
 .eventinjured{background-color:#0F060F;color:#aaa;}
 .eventunsurfed{background-color:#eee;color:#999;}
 
